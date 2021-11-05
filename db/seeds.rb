@@ -8,7 +8,11 @@
 
 # Create user
 10.times do
-  User.create!(username: Faker::Internet.unique.username)
+  User.create!(
+    email: Faker::Internet.email,
+    username: Faker::Internet.unique.username,
+    password: 'asdf1234'
+  )
 end
 # Create author
 10.times do
@@ -35,3 +39,7 @@ Book.all.each do |book|
   num_of_author = [1, 2].sample
   book.authors << Author.all.sample(num_of_author)
 end
+
+puts '-=+' * 36
+puts User.all.sample.email
+puts '-=+' * 36
