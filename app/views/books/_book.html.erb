@@ -1,0 +1,9 @@
+<div class="card w-25 mx-2 mb-2">
+  <div class="card-body">
+    <h2 class="card-title"><%= book.title %></h2>
+    <p class="card-text"><strong>Publisher:</strong> <%= book.publisher.name %></p>
+    <p class="card-text"><strong>Authors:</strong> <%= book.author_names.join(', ') %></p>
+    <%# <a href="#" class="btn btn-primary">Go somewhere</a> %>
+    <%= link_to('View Book', book_path(book), class: 'btn btn-primary') %>
+  </div>
+</div>

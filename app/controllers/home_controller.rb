@@ -1,10 +1,5 @@
 class HomeController < ApplicationController
-  # Index
-  # Show
-  # New
-  # Create
-  # Edit
-  # Update
-  # Destroy
-  def index; end # => views/{ControllerName}/{Method}
+  def index
+    redirect_to books_path if current_user
+  end
 end
