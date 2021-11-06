@@ -1,5 +1,17 @@
-<h1>New User</h1>
+<div class="container">
+  <div id="clearance" class="sign-up">
+    <h2><%= t(".title") %></h2>
 
-<%= render 'form', user: @user %>
+    <%= form_with(model: @user) do |form| %>
+      <%= render partial: '/users/form', object: form %>
 
-<%= link_to 'Back', users_path %>
+      <div class="submit-field my-3">
+        <%= form.submit(class: 'btn btn-primary') %>
+      </div>
+
+      <div class="other-links">
+        Have an account? <%= link_to "Sign in", sign_in_path %> now!
+      </div>
+    <% end %>
+  </div>
+</div>
