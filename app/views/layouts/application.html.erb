@@ -13,6 +13,23 @@
 
   <body>
     <%= render partial: 'shared/navbar' %>
+
+    <% flash.each do |key, value| %>
+      <% case key %>
+      <% when "success" %>
+        <div class="container">
+          <div class="alert alert-success" role="alert">
+            <%= value %>
+          </div>
+        </div>
+      <% when "error" %>
+        <div class="container">
+          <div class="alert alert-danger" role="alert">
+            <%= value %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
