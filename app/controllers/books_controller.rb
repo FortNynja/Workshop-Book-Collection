@@ -6,4 +6,13 @@ class BooksController < ApplicationController
     @books = Book.includes(:publisher, :authors).all
     # @books = Book.all
   end
+
+  def show
+    @reviews = @book.reviews.includes(:user)
+  end
+
+  private
+    def set_book
+      @book = Book.find(params[:id])
+    end
 end
