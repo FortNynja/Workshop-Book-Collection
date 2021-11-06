@@ -1,9 +1,10 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :require_login
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = current_user.reviews
   end
 
   # GET /reviews/1 or /reviews/1.json
@@ -12,7 +13,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    @review = current_user.reviews.new
   end
 
   # GET /reviews/1/edit
@@ -21,17 +22,15 @@ class ReviewsController < ApplicationController
 
   # POST /reviews or /reviews.json
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.new(review_params)
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: "Review was successfully created." }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.save
+      flash[:success] = "Successfully created review"
+    else
+      flash[:error] = "Something went wrong"
     end
+
+    redirect_back(fallback_location: books_path)
   end
 
   # PATCH/PUT /reviews/1 or /reviews/1.json
@@ -59,11 +58,11 @@ class ReviewsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
-      @review = Review.find(params[:id])
+      @review = current_user.reviews.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def review_params
-      params.require(:review).permit(:content, :user_id, :book_id)
+      params.require(:review).permit(:content, :book_id)
     end
 end

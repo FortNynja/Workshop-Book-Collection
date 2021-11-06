@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root 'home#index'
   resources :authors
-  resources :reviews
   resources :books
   resources :publishers
-  resources :users
+  resources :users do
+    collection do
+      resources :reviews
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

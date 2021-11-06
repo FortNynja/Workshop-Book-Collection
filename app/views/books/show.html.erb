@@ -4,5 +4,6 @@
   <p><strong>Authors:</strong> <%= @book.author_names.join(', ') %></p>
 
   <h2>Reviews</h2>
+  <%= render partial: 'reviews/form', locals: { review: current_user.reviews.new(book: @book) } %>
   <%= render partial: 'reviews/review', collection: @reviews, as: :review %>
 </div>
