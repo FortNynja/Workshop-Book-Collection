@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[ show edit update destroy ]
-  before_action :require_login
+  # before_action :require_login
 
   def index
     @books = Book.includes(:publisher, :authors).all
@@ -8,7 +8,7 @@ class BooksController < ApplicationController
   end
 
   def show
-    @reviews = @book.reviews.includes(:user)
+    @reviews = @book.reviews
   end
 
   private
