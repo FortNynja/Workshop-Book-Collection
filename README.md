@@ -9,3 +9,11 @@ Dependencies:
 * Rails version 6.1.4
 
 Follow this guide to setup rails: https://gorails.com/setup/ubuntu/21.04
+
+To run the repo:
+* Ensure rails setup correctly
+* Navigate to project folder
+* rails db:create
+* rails db:migrate
+* rails db:seed
+* rails server
