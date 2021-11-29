@@ -13,7 +13,8 @@ Follow this guide to setup rails: https://gorails.com/setup/ubuntu/21.04
 To run the repo:
 * Ensure rails setup correctly
 * Navigate to project folder
+* Install gem dependencies with 'bundle install'
 * Create project database `rails db:create`
 * Migrate database `rails db:migrate`
 * Seed database with random values with `rails db:seed`
-* Start server `rails s`
+* Start server `rails server`
