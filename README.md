@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repository contains the code for FortNynja's Wev Development Speed Run Workshop held on 26th November 2021.
 
-Things you may want to cover:
+Stay in touch with us via Discord: https://discord.com/invite/wqXSqvz852
 
-* Ruby version
+Dependencies:
+* Ruby version 3.0.2
+* Rails version 6.1.4
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Follow this guide to setup rails: https://gorails.com/setup/ubuntu/21.04
